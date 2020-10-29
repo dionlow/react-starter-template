@@ -53,6 +53,7 @@ Iconography and svgs if not done in pure css.
 - Style. The checkbox isn't style. 
 - Font. Local Imports or CDN.
 - Microinteractions. Better hover animations. Increase usability affordance in Custom Select on hover or animate the arrow transition.
+- Form Affordances. Tooltips in combination with validation.
 
 ## Other Create React App Commands. 
 
