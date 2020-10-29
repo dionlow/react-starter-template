@@ -30,7 +30,7 @@ const App = () => {
           onClick={onSubmit}
           onKeyPress={onSubmit}
         >
-          Sign Up
+          Sign-up
         </button>
       </div>
     </div>

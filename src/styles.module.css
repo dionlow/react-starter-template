@@ -19,7 +19,7 @@
 }
 
 .circleIcon {
-  border: 1.67344px solid #0B1153;
+  border: 2px solid #0B1153;
   height: 36px;
   width: 36px;
   border-radius: 50%; 
@@ -51,11 +51,13 @@
 }
 
 .signupButton {
-  padding: 1rem;
+  font-size: 1.2rem;
+  padding: 1.5rem;
   width: 100%;
   margin-top: 3rem;
   border-radius: 0 0 13px 13px;
-  background-color: aliceblue;
+  background: linear-gradient(180deg, #79D9F1 0%, #44B1DF 100%);
   border: none;
+  color: white;
 }
 

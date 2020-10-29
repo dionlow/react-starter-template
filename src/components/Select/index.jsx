@@ -34,7 +34,7 @@ const Select = ({ onChangeFormValue, options = defaultOptions, field }) => {
         onClick={toggling}
         onKeyPress={toggling}
       >
-        {selectedOption ?? "Select an option"}
+        {selectedOption ?? "Select your ticketing system"}
         <span
           role="button"
           tabIndex={0}

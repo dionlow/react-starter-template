@@ -1,7 +1,7 @@
 .inputsContainer {
   display: flex;
   flex-direction: column;
-  width: 80%;  
+  width: 75%;  
 }
 
 .input {
@@ -15,10 +15,24 @@
   border-bottom: 1px solid #9013FE;
 }
 
+.input::placeholder {
+  color: #77A4AC
+}
+
 .errorDiv {
-  font-size: .8rem;
+  font-size: .625rem;
   font-family: inherit;
   color: red;
   height: 1rem;
   margin-bottom: .5rem;
+}
+
+.termsOfService,
+a:link,
+a:visited,
+a:hover,
+a:active  {
+  padding-top: 1rem;
+  font-size: .8rem;
+  color: #22386F;
 }

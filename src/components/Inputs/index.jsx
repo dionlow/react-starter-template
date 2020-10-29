@@ -3,13 +3,18 @@ import React from "react"
 import { FORM_FIELDS } from "../../constants"
 import Select from "../Select"
 
-import { inputsContainer, input, errorDiv } from "./styles.module.css"
+import {
+  inputsContainer,
+  input,
+  errorDiv,
+  termsOfService,
+} from "./styles.module.css"
 
 const BusinessNameInput = ({ formState, onChangeFormValue }) => (
   <>
     <input
       className={input}
-      placeholder="what is the name of your business?"
+      placeholder="What is the name of your business?"
       value={formState[FORM_FIELDS.BUSINESS_NAME]?.value ?? ""}
       onChange={(e) => onChangeFormValue(e, FORM_FIELDS.BUSINESS_NAME)}
     />
@@ -25,14 +30,14 @@ const BusinessURLInput = ({ formState, onChangeFormValue }) => (
   <>
     <input
       className={input}
-      placeholder="business website url"
+      placeholder="What is you business website url?"
       value={formState[FORM_FIELDS.URL]?.value ?? ""}
       onChange={(e) => onChangeFormValue(e, FORM_FIELDS.URL)}
     />
     <span className={errorDiv}>
       {formState[FORM_FIELDS.URL]?.touched === true &&
         !formState[FORM_FIELDS.URL]?.value?.length && // TODO: add a validate function forms.
-        "Business Website Required."}
+        "Business Website Required"}
     </span>
   </>
 )
@@ -41,7 +46,7 @@ const EmailInput = ({ formState, onChangeFormValue }) => (
   <>
     <input
       className={input}
-      placeholder="mybusiness@gmail.com"
+      placeholder="What is your email?"
       value={formState[FORM_FIELDS.EMAIL]?.value ?? ""}
       onChange={(e) => onChangeFormValue(e, FORM_FIELDS.EMAIL)}
     />
@@ -59,14 +64,14 @@ const PasswordInput = ({ formState, onChangeFormValue }) => {
       <input
         type="password"
         className={input}
-        placeholder="enter password"
+        placeholder="Create a password."
         value={formState[FORM_FIELDS.PASSWORD]?.value ?? ""}
         onChange={(e) => onChangeFormValue(e, FORM_FIELDS.PASSWORD)}
       />
       <span className={errorDiv}>
         {formState[FORM_FIELDS.PASSWORD]?.touched === true &&
           !(formState[FORM_FIELDS.PASSWORD]?.value?.length >= 8) && // TODO: add a validate function forms.
-          "password must be at least 8 characters long"}
+          "Password must be at least 8 characters long."}
       </span>
     </>
   )
@@ -88,13 +93,20 @@ const SelectProviderInput = ({ formState, onChangeFormValue }) => {
 
 const TermCheckmarkInput = ({ formState, onChangeFormValue }) => {
   return (
-    <div className="termsOfService">
+    <div className={termsOfService}>
       <input
         type="checkbox"
         defaultChecked={!!formState[FORM_FIELDS.TICKETING_SYSTEM]?.value}
         onClick={(e) => onChangeFormValue(e, FORM_FIELDS.TERMS)}
       />
-      <span className="checkmark" />I accept to the Terms of Service
+      <span className="checkmark" />I accept to the{" "}
+      <a
+        href="https://www.termsandcondiitionssample.com/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Terms of Service
+      </a>
     </div>
   )
 }
