@@ -1,8 +1,17 @@
-# Getting Started with Create React App
+# Simplr Template App
+
+This project contains the UI for the 'Simplr Sign Up'. The form is built upon basic React with preference to use react hooks to manage state. Use of hooks avoids additional template code with React Classes and containers methodology. 
+
+The UI is mostly up to spec with the given figma designs and includes
+- basic screen resizing: Minimalist form centering to allow use on desktop and smaller screens.
+- form input and form state management
+- basic input validation (simple value checks to show UI error strings)
+- custom vanilla css using css modules and without reliance on css frameworks (i.e. sass) or libraries (i.e. bootstrap)
+- custom Select component from scratch to demonstrate customizability to design. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Quick Start
 
 In the project directory, you can run:
 
@@ -13,6 +22,39 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+
+## Testing 
+
+After running the app. The form can interacted with by clicking on form fields and typing or selecting certain input. The Sign Up Button will console.log the current form state. 
+
+### Future Iterations
+
+#### Validation
+Adding more robust validation for the form. Hopefully using a vetted library (i.e. validation.js for passwords, emails, etc). 
+- Example Library: https://www.npmjs.com/package/validator (4 million weekly downloads -- don't reinvent the wheel)
+- Simplier solutions could be use common regex patterns 
+  - https://emailregex.com/
+  - https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a  
+- Validating on Submit: validating all fields and scrolling to field that requires correction with better error validation (i.e. password or email special chars errors)
+
+#### Refactoring
+- Refactoring Inputs Components to use a HOC which will source form state, placeholder strings, and error strings from const enum objects. Easier for maintaince and possible flexibility for language conversion (i.e. German, French etc.). Possilble to generalize. 
+- Separate components into separate files.
+
+#### Testing 
+Testing render and form states, error states, and validation.
+
+#### CDN 
+Iconography and svgs if not done in pure css. 
+
+#### Custom Form and Component Testing 
+
+- Style. The checkbox isn't style. 
+- Font. Local Imports or CDN.
+- Microinteractions. Better hover animations. Increase usability affordance in Custom Select on hover or animate the arrow transition.
+
+## Other Create React App Commands. 
 
 ### `yarn test`
 

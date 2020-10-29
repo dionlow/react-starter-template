@@ -1,0 +1,38 @@
+.dropdownContainer {
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  right: 0;
+  top: -2px;
+}
+
+.dropdownHeader {
+  position: relative;
+  border-bottom: 1px solid #C3E4EA;
+}
+
+.dropdownHeader:focus {
+  border-bottom: 1px solid #9013FE;
+}
+
+.dropdownList {
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  padding: .5rem 0;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  border-radius: 2px;
+  line-height: 1.5;
+  min-width: 12rem;
+}
+
+.dropdownItem {
+  padding: 0 1rem;
+}
+
+.dropdownItem:hover {
+  background-color: #C3E4EA;
+}

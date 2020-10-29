@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
+import { useForm } from './useForm';
+import Inputs from './components/Inputs';
+
+import { 
+  container, 
+  formContainer,
+  circleIcon,
+  iconImage,
+  headerText,
+  signupButton,
+} from './styles.module.css';
+
+
+const App = () => {
+  const { formState, onChangeFormValue, onSubmit } = useForm();
+  const inputProps = { formState, onChangeFormValue };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={container}>
+        <div className={formContainer}>
+          <div className={circleIcon}><span className={iconImage}></span></div>
+          <div className={headerText}>Tell us about yourself</div>
+          <Inputs {...inputProps} />          
+          <button className={signupButton} onClick={onSubmit}>Sign Up</button>
+        </div>
     </div>
   );
 }
