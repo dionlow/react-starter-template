@@ -10,4 +10,5 @@ export const ERROR_STRINGS = {
   TICKETING_SYSTEM_REQUIRED: "Ticketing Systems Required",
   URL_REQUIRED: "URL Required",
   VALID_URL: "Please enter a valid URL",
+  TERMS_REQUIRED: "Please agree to our terms.",
 }

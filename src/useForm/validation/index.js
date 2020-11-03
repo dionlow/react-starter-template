@@ -26,6 +26,9 @@ export const validate = (field, value) => {
       if (!value) return ERROR_STRINGS.URL_REQUIRED
       if (!isURL(value)) return ERROR_STRINGS.VALID_URL
       break
+    case FORM_FIELDS.TERMS:
+      if (!value) return ERROR_STRINGS.TERMS_REQUIRED
+      break
     default:
       break
   }

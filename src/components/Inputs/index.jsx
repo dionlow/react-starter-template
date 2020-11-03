@@ -79,21 +79,27 @@ const TermCheckmarkInput = ({ formState, onChangeFormValue }) => {
   }
 
   return (
-    <div className={termsOfService}>
-      <input
-        type="checkbox"
-        defaultChecked={!!formState[FORM_FIELDS.TICKETING_SYSTEM]?.value}
-        onClick={onHandleChange}
-      />
-      <span className={checkText}>I accept to the</span>
-      <a
-        href="https://www.termsandcondiitionssample.com/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Terms of Service
-      </a>
-    </div>
+    <>
+      <div className={termsOfService}>
+        <input
+          type="checkbox"
+          defaultChecked={!!formState[FORM_FIELDS.TICKETING_SYSTEM]?.value}
+          onClick={onHandleChange}
+        />
+        <span className={checkText}>I accept to the</span>
+        <a
+          href="https://www.termsandcondiitionssample.com/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Terms of Service
+        </a>
+      </div>
+      <span className={errorDiv}>
+        {formState[FORM_FIELDS.TERMS]?.touched === true &&
+          formState[FORM_FIELDS.TERMS]?.error}
+      </span>
+    </>
   )
 }
 

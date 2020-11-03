@@ -32,26 +32,29 @@ const useForm = () => {
 
   const onValidateAll = () => {
     let isValid = true
+    const errors = []
     const newFormState = { ...formState }
 
     fields.forEach((field) => {
       const value = formState[field]?.value ?? ""
       const error = validate(field, value)
-      if (error) isValid = false
+      if (error) {
+        isValid = false
+        errors.push(error)
+      }
 
       const updatedFormField = { value, touched: true, error }
       newFormState[field] = updatedFormField
     })
 
     setFormState(newFormState)
-
-    return isValid
+    return { isValid, errors }
   }
 
   const onSubmit = () => {
     // TODO transform form state to API requirements, trim submitted values etc.
 
-    const isValid = onValidateAll()
+    const { isValid, errors } = onValidateAll()
     if (isValid) {
       // eslint-disable-next-line no-console
       console.log("VALIDATION SUCCESS")
@@ -60,7 +63,9 @@ const useForm = () => {
     }
 
     // eslint-disable-next-line no-console
-    return console.log("NOT VALID: Please fill out required fields")
+    console.log("NOT VALID: Please fill out required fields.")
+    // eslint-disable-next-line no-console
+    return console.log("ERRORS: ", errors.join(" - "))
   }
 
   return {
