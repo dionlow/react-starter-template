@@ -2,8 +2,8 @@
 
 This project contains the UI for the 'Simplr Sign Up'. The form is built upon basic React with preference to use react hooks to manage state. Use of hooks avoids additional template code with React Classes and containers methodology. 
 
-[Desktop View](SimplrDesktopScreenshot.png)
-[Mobile View](SimplrMobileScreenshot.png)
+![Desktop View](SimplrDesktopScreenshot.png)
+![Mobile View](SimplrMobileScreenshot.png)
 
 The UI is mostly up to spec with the given figma designs and includes
 - basic screen resizing: minimalist form centering to allow use on desktop and smaller screens.
