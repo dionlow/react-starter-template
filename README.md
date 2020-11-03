@@ -52,11 +52,11 @@ Adding more robust validation for the form. Hopefully using a vetted library (i.
 - Refactoring Inputs Components to use a HOC which will source form state, placeholder strings, and error strings. Tracking can be added to the HOC for inputs as well. 
 - Moving all strings to one will place will make it easier for maintaince and possible flexibility for language conversion (i.e. German, French etc.).
 
-### Custom Form and Component Testing 
+### Custom Form Additions 
 
 - Style. The checkbox isn't styled. 
-- Microinteractions. Better hover animations. Increase usability affordance in Custom Select on hover or animate the arrow transition.
 - Form Affordances. Tooltip/Callout has not been added yet. 
+- Microinteractions. Better hover animations. Increase usability affordance in Custom Select on hover or animate the arrow transition.
 
 ### React Render Optimizations
 One of the caveats when managing state in React is that Child componets always rerender when the parent component re-renders. While functional components which just accept inputs can be converted to cached components (i.e. React.memo), these rely on correctly caching references to functions and minimizing the number of inputs passed in. Since the formstate is consistently changing, when formstate is past around during quick prototyping, this can lead to performance optimization hits as every form component will rerender when a single state is changed (shared at the parent level to allow form validation to happen on submit). Additionally references to functions like onChangeHandlers need to be tracked (i.e. useCallback) since React default assigns a new reference to functions. In older class based React, these would be solved via shouldComponentUpdate lifecycle functions and PureComponents.
