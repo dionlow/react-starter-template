@@ -1,5 +1,5 @@
 .container {
-  margin-top: 3rem;
+  margin-top: 3rem; 
 }
 
 .formContainer {
@@ -64,5 +64,24 @@
 
 .signupButton:hover {
   opacity: .9;
+}
+
+/* Mobile and Small Tablet Styles */
+@media only screen and (max-width: 600px) {
+  .container {
+    margin-top: unset;   /* Remove Top Margin*/
+  }
+
+  .formContainer {
+    box-shadow: unset;   /* Remove Form Borders */
+    border-radius: unset;
+  }
+
+  /* Move Button to Bottom */
+  .signupButton {
+    position: absolute;
+    bottom: 0;
+    border-radius: unset;
+  }
 }
 
