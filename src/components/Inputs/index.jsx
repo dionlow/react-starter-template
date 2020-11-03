@@ -1,80 +1,55 @@
 import React from "react"
 
 import { FORM_FIELDS } from "../../constants"
+import TextInput from "./TextInput"
 import Select from "../Select"
-// import Popup from "../Popup"
 
-import {
-  inputsContainer,
-  input,
-  errorDiv,
-  termsOfService,
-} from "./styles.module.css"
-
-const TextInput = ({
-  formState,
-  onChangeFormValue,
-  field,
-  placeholder,
-  isPassword = false,
-}) => {
-  const onHandleChange = (event) => {
-    onChangeFormValue(event, field)
-  }
-
-  return (
-    <>
-      <input
-        type={isPassword ? "password" : undefined}
-        className={input}
-        placeholder={placeholder}
-        value={formState[field]?.value ?? ""}
-        onChange={onHandleChange}
-      />
-      {/* <Popup isOpen text={"Please include '@' in the address"} /> */}
-      <span className={errorDiv}>
-        {formState[field]?.touched === true && formState[field]?.error}
-      </span>
-    </>
-  )
-}
+import { inputsContainer, errorDiv, termsOfService } from "./styles.module.css"
 
 const BusinessNameInput = ({ formState, onChangeFormValue }) => {
+  const field = FORM_FIELDS.BUSINESS_NAME
   const inputProps = {
-    formState,
+    field,
     onChangeFormValue,
+    formValue: formState[field]?.value ?? "",
+    formError: formState[field]?.touched === true && formState[field]?.error,
     placeholder: "What is the name of your business?",
-    field: FORM_FIELDS.BUSINESS_NAME,
   }
   return <TextInput {...inputProps} />
 }
 
 const BusinessURLInput = ({ formState, onChangeFormValue }) => {
+  const field = FORM_FIELDS.URL
   const inputProps = {
-    formState,
+    field,
     onChangeFormValue,
+    formValue: formState[field]?.value ?? "",
+    formError: formState[field]?.touched === true && formState[field]?.error,
     placeholder: "What is your business website url?",
-    field: FORM_FIELDS.URL,
   }
   return <TextInput {...inputProps} />
 }
 
 const EmailInput = ({ formState, onChangeFormValue }) => {
+  const field = FORM_FIELDS.EMAIL
   const inputProps = {
-    formState,
+    field,
     onChangeFormValue,
+    formValue: formState[field]?.value ?? "",
+    formError: formState[field]?.touched === true && formState[field]?.error,
     placeholder: "What is your email?",
-    field: FORM_FIELDS.EMAIL,
   }
   return <TextInput {...inputProps} />
 }
 
 const PasswordInput = ({ formState, onChangeFormValue }) => {
+  const field = FORM_FIELDS.PASSWORD
   const inputProps = {
-    formState,
+    field,
     onChangeFormValue,
+    formValue: formState[field]?.value ?? "",
+    formError: formState[field]?.touched === true && formState[field]?.error,
     placeholder: "Create a password.",
-    field: FORM_FIELDS.PASSWORD,
     isPassword: true,
   }
   return <TextInput {...inputProps} />
