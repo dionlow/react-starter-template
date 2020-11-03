@@ -4,7 +4,12 @@ import { FORM_FIELDS } from "../../constants"
 import TextInput from "./TextInput"
 import Select from "../Select"
 
-import { inputsContainer, errorDiv, termsOfService } from "./styles.module.css"
+import {
+  inputsContainer,
+  errorDiv,
+  termsOfService,
+  checkText,
+} from "./styles.module.css"
 
 const BusinessNameInput = ({ formState, onChangeFormValue }) => {
   const field = FORM_FIELDS.BUSINESS_NAME
@@ -80,7 +85,7 @@ const TermCheckmarkInput = ({ formState, onChangeFormValue }) => {
         defaultChecked={!!formState[FORM_FIELDS.TICKETING_SYSTEM]?.value}
         onClick={onHandleChange}
       />
-      <span className="checkmark" />I accept to the{" "}
+      <span className={checkText}>I accept to the</span>
       <a
         href="https://www.termsandcondiitionssample.com/"
         target="_blank"

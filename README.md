@@ -65,4 +65,3 @@ Since the project asked for quick UX prototyping, these performance optimations 
 
 ### CDN 
 Move iconography and svgs if not done in pure css to a cdn like cloudinary or some cloud asset manager to optimize images and svgs (not required since no images are present)
-

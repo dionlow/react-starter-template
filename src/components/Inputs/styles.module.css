@@ -29,12 +29,21 @@
   margin-bottom: .5rem;
 }
 
-.termsOfService,
+.termsOfService {
+  display: flex;
+  align-items: center;
+  padding-top: 1rem;
+  font-size: .8rem;
+  color: #22386F;
+}
+
+.checkText {
+  padding: 0 .25rem 0 .5rem;
+}
+
 a:link,
 a:visited,
 a:hover,
-a:active  {
-  padding-top: 1rem;
-  font-size: .8rem;
+a:active  {   
   color: #22386F;
 }
