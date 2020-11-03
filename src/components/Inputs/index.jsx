@@ -2,6 +2,7 @@ import React from "react"
 
 import { FORM_FIELDS } from "../../constants"
 import Select from "../Select"
+// import Popup from "../Popup"
 
 import {
   inputsContainer,
@@ -10,71 +11,73 @@ import {
   termsOfService,
 } from "./styles.module.css"
 
-const BusinessNameInput = ({ formState, onChangeFormValue }) => (
-  <>
-    <input
-      className={input}
-      placeholder="What is the name of your business?"
-      value={formState[FORM_FIELDS.BUSINESS_NAME]?.value ?? ""}
-      onChange={(e) => onChangeFormValue(e, FORM_FIELDS.BUSINESS_NAME)}
-    />
-    <span className={errorDiv}>
-      {formState[FORM_FIELDS.BUSINESS_NAME]?.touched === true &&
-        !formState[FORM_FIELDS.BUSINESS_NAME]?.value?.length && // TODO: add a validate function forms.
-        "Business Name Required"}
-    </span>
-  </>
-)
+const TextInput = ({
+  formState,
+  onChangeFormValue,
+  field,
+  placeholder,
+  isPassword = false,
+}) => {
+  const onHandleChange = (event) => {
+    onChangeFormValue(event, field)
+  }
 
-const BusinessURLInput = ({ formState, onChangeFormValue }) => (
-  <>
-    <input
-      className={input}
-      placeholder="What is you business website url?"
-      value={formState[FORM_FIELDS.URL]?.value ?? ""}
-      onChange={(e) => onChangeFormValue(e, FORM_FIELDS.URL)}
-    />
-    <span className={errorDiv}>
-      {formState[FORM_FIELDS.URL]?.touched === true &&
-        !formState[FORM_FIELDS.URL]?.value?.length && // TODO: add a validate function forms.
-        "Business Website Required"}
-    </span>
-  </>
-)
-
-const EmailInput = ({ formState, onChangeFormValue }) => (
-  <>
-    <input
-      className={input}
-      placeholder="What is your email?"
-      value={formState[FORM_FIELDS.EMAIL]?.value ?? ""}
-      onChange={(e) => onChangeFormValue(e, FORM_FIELDS.EMAIL)}
-    />
-    <span className={errorDiv}>
-      {formState[FORM_FIELDS.EMAIL]?.touched === true &&
-        !formState[FORM_FIELDS.EMAIL]?.value?.length && // TODO: add a validate function forms.
-        "Email Required"}
-    </span>
-  </>
-)
-
-const PasswordInput = ({ formState, onChangeFormValue }) => {
   return (
     <>
       <input
-        type="password"
+        type={isPassword ? "password" : undefined}
         className={input}
-        placeholder="Create a password."
-        value={formState[FORM_FIELDS.PASSWORD]?.value ?? ""}
-        onChange={(e) => onChangeFormValue(e, FORM_FIELDS.PASSWORD)}
+        placeholder={placeholder}
+        value={formState[field]?.value ?? ""}
+        onChange={onHandleChange}
       />
+      {/* <Popup isOpen text={"Please include '@' in the address"} /> */}
       <span className={errorDiv}>
-        {formState[FORM_FIELDS.PASSWORD]?.touched === true &&
-          !(formState[FORM_FIELDS.PASSWORD]?.value?.length >= 8) && // TODO: add a validate function forms.
-          "Password must be at least 8 characters long."}
+        {formState[field]?.touched === true && formState[field]?.error}
       </span>
     </>
   )
+}
+
+const BusinessNameInput = ({ formState, onChangeFormValue }) => {
+  const inputProps = {
+    formState,
+    onChangeFormValue,
+    placeholder: "What is the name of your business?",
+    field: FORM_FIELDS.BUSINESS_NAME,
+  }
+  return <TextInput {...inputProps} />
+}
+
+const BusinessURLInput = ({ formState, onChangeFormValue }) => {
+  const inputProps = {
+    formState,
+    onChangeFormValue,
+    placeholder: "What is your business website url?",
+    field: FORM_FIELDS.URL,
+  }
+  return <TextInput {...inputProps} />
+}
+
+const EmailInput = ({ formState, onChangeFormValue }) => {
+  const inputProps = {
+    formState,
+    onChangeFormValue,
+    placeholder: "What is your email?",
+    field: FORM_FIELDS.EMAIL,
+  }
+  return <TextInput {...inputProps} />
+}
+
+const PasswordInput = ({ formState, onChangeFormValue }) => {
+  const inputProps = {
+    formState,
+    onChangeFormValue,
+    placeholder: "Create a password.",
+    field: FORM_FIELDS.PASSWORD,
+    isPassword: true,
+  }
+  return <TextInput {...inputProps} />
 }
 
 const SelectProviderInput = ({ formState, onChangeFormValue }) => {
@@ -84,20 +87,23 @@ const SelectProviderInput = ({ formState, onChangeFormValue }) => {
       <Select {...sharedInputProps} field={FORM_FIELDS.TICKETING_SYSTEM} />
       <span className={errorDiv}>
         {formState[FORM_FIELDS.TICKETING_SYSTEM]?.touched === true &&
-          !formState[FORM_FIELDS.TICKETING_SYSTEM]?.value && // TODO: add a validate function forms.
-          "Ticketing System Required"}
+          formState[FORM_FIELDS.TICKETING_SYSTEM]?.error}
       </span>
     </>
   )
 }
 
 const TermCheckmarkInput = ({ formState, onChangeFormValue }) => {
+  const onHandleChange = (event) => {
+    onChangeFormValue(event, FORM_FIELDS.TERMS)
+  }
+
   return (
     <div className={termsOfService}>
       <input
         type="checkbox"
         defaultChecked={!!formState[FORM_FIELDS.TICKETING_SYSTEM]?.value}
-        onClick={(e) => onChangeFormValue(e, FORM_FIELDS.TERMS)}
+        onClick={onHandleChange}
       />
       <span className="checkmark" />I accept to the{" "}
       <a

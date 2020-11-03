@@ -59,5 +59,10 @@
   background: linear-gradient(180deg, #79D9F1 0%, #44B1DF 100%);
   border: none;
   color: white;
+  transition: opacity 0.5s ease;
+}
+
+.signupButton:hover {
+  opacity: .9;
 }
 
