@@ -7,7 +7,6 @@ import { isURL } from "./url"
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
 // Returns error not valid or null if no error.
-// eslint-disable-next-line import/prefer-default-export
 export const validate = (field, value) => {
   switch (field) {
     case FORM_FIELDS.BUSINESS_NAME:

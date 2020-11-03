@@ -49,7 +49,7 @@ const useForm = () => {
   }
 
   const onSubmit = () => {
-    // TODO transform form state to API requirements
+    // TODO transform form state to API requirements, trim submitted values etc.
 
     const isValid = onValidateAll()
     if (isValid) {
