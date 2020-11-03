@@ -30,7 +30,7 @@
 
 .iconImage {
   /* TODO: this normally would be moved to a cdn */
-  background-image: url('./messageIcon.svg');
+  background-image: url('./assets/messageIcon.svg');
 
   width: 19px;
   height: 16px; 

@@ -12,6 +12,7 @@
   ],
   "rules": {
     "semi": 0,
+    "import/prefer-default-export": "off",
     "prefer-default-export": 0,
     "react/jsx-props-no-spreading": 0,
     "react/prop-types": 0,    
