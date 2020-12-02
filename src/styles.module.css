@@ -18,26 +18,6 @@
   padding-top: 3rem;
 }
 
-.circleIcon {
-  border: 2px solid #0B1153;
-  height: 36px;
-  width: 36px;
-  border-radius: 50%; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.iconImage {
-  /* TODO: this normally would be moved to a cdn */
-  background-image: url('./assets/messageIcon.svg');
-
-  width: 19px;
-  height: 16px; 
-  object-fit: contain;
-  background-repeat: no-repeat;
-}
-
 .headerText {
   font-style: normal;
   font-weight: normal;
@@ -49,22 +29,6 @@
   padding: 1rem 0 3rem 0;
 }
 
-.signupButton {
-  font-size: 1.2rem;
-  padding: 1.5rem;
-  width: 100%;
-  margin-top: 3rem;
-  border-radius: 0 0 13px 13px;
-  background: linear-gradient(180deg, #79D9F1 0%, #44B1DF 100%);
-  border: none;
-  color: white;
-  transition: opacity 0.5s ease;
-}
-
-.signupButton:hover {
-  opacity: .9;
-}
-
 /* Mobile and Small Tablet Styles */
 @media only screen and (max-width: 600px) {
   .container {
@@ -73,13 +37,6 @@
 
   .formContainer {
     box-shadow: unset;   /* Remove Form Borders */
-    border-radius: unset;
-  }
-
-  /* Move Button to Bottom */
-  .signupButton {
-    position: absolute;
-    bottom: 0;
     border-radius: unset;
   }
 }
